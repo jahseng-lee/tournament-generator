@@ -2,8 +2,7 @@ class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
 
   def create
-    auth_hash
-    raise NotImplementedError, "TODO"
+    FindOrCreateUser.call(auth_hash)
   end
 
   private
